@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Rolling Roots Tire Co</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ADD8E6;
+            font-family: Arial, sans-serif;
+            width: 100%;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: #ADD8E6;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #ADD8E6;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #ADD8E6;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .shop-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        form {
+            background-color: #303030;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ADD8E6;
+            border-radius: 3px;
+            background-color: #505050;
+            color: #ADD8E6;
+        }
+        form button {
+            background-color: #ADD8E6;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        form button:hover {
+            background-color: #7FB3D5;
+        }
+    </style>
+</head>
+<body>
+
+<header role="banner">
+    <h1>Rolling Roots Tire Co</h1>
+    <nav role="navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main role="main">
+    <section>
+        <h2>Contact Us</h2>
+        <address>
+            <p><strong>Ted Tire</strong></p>
+            <p>408-444-4444</p>
+            <p>1234 Oakland Rd, Oakland, CA</p>
+        </address>
+        <form action="#" method="post" onsubmit="return validateForm()">
+            <fieldset>
+                <legend>Contact Form</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+                <label for="appointment-date">Appointment Date:</label>
+                <input type="date" id="appointment-date" name="appointment-date" required>
+
+                <label for="appointment-time">Appointment Time:</label>
+                <input type="time" id="appointment-time" name="appointment-time" required>
+
+                <label for="service-type">Type of Service:</label>
+                <select id="service-type" name="service-type">
+                    <option value="installation">Tire Installation</option>
+                    <option value="alignment">Wheel Alignment</option>
+                    <option value="balancing">Tire Balancing</option>
+                </select>
+
+                <label for="contact-method">Preferred Contact Method:</label>
+                <input type="radio" id="contact-email" name="contact-method" value="email" required>
+                <label for="contact-email" style="display: inline;">Email</label>
+                <input type="radio" id="contact-phone" name="contact-method" value="phone">
+                <label for="contact-phone" style="display: inline;">Phone</label>
+
+                <label for="newsletter">Subscribe to our newsletter:</label>
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required minlength="10"></textarea>
+
+                <button type="submit">Send</button>
+            </fieldset>
+        </form>
+        <img src="C:\Users\perrymanc\OneDrive - Tyson Online\Desktop\wheelsontheroad.jpg" alt="Tire" class="shop-image">
+    </section>
+</main>
+
+<footer role="contentinfo">
+    <p>&copy; 2024 Rolling Roots Tire Co. All rights reserved.</p>
+</footer>
+
+<script>
+function validateForm() {
+    const phone = document.getElementById('phone').value;
+    const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+
+    if (!phonePattern.test(phone)) {
+        alert('Phone number must be in the format XXX-XXX-XXXX');
+        return false;
+    }
+
+    const email = document.getElementById('email').value;
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address');
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
